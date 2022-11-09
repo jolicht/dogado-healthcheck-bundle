@@ -1,6 +1,5 @@
 /.idea/
 /vendor/
-/composer.json
 /.phpunit.result.cache
 /tests/artefacts/
 /.php-cs-fixer.cache
