@@ -1,0 +1,21 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Jolicht\DogadoHealthcheckBundle\Controller\:
+    resource: '../src/Controller'
+    tags: [ 'controller.service_arguments' ]
+
+  Jolicht\DogadoHealthcheckBundle\CheckCollection: ~
+
+  dogado_healthcheck.connection_check:
+    class: Jolicht\DogadoHealthcheckBundle\Check\DoctrineDbalConnectionCheck
+    calls:
+      - [ setContainer, [ '@service_container' ] ]
+
+  dogado_healthcheck.environment_check:
+    class: Jolicht\DogadoHealthcheckBundle\Check\EnvironmentCheck
+    calls:
+      - [ setContainer, [ '@service_container' ] ]
+
